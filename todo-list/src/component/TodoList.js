@@ -7,11 +7,11 @@ import './TodoList.scss';
 // 여기서 사용되는 ket값은 각 항목마다 가지고 있는 고윳값인 id를 넣어주어야한다
 // todo데이터는 통째로 props로 전달해야함 (여러 종류의 값을 전달해야할 때에는 객체를 통째로 전달하는데 성능 최적화 할 때 편리)
 
-const TodoList = ({todos}) => {
+const TodoList = ({todos , onRemove , onToggle}) => {
     return (
         <div className="TodoList">
             {todos.map(todo => (
-                <TodoListItem todo={todo} key={todo.id} />
+                <TodoListItem todo={todo} key={todo.id} onRemove={onRemove} onToggle={onToggle}/>
             ))}
         </div>
     );
